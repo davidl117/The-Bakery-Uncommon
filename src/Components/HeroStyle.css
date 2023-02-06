@@ -1,0 +1,11 @@
+
+.hero-container {
+    text-align: center;
+    background-color: rgb(226, 192, 148);
+    padding-top: 5px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}

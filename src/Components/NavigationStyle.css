@@ -37,7 +37,7 @@ nav li {
     }
     
     .burger-bar {
-        z-index: 1;
+        z-index: 2;
         width: 2em;
         height: 0.25em;
         background-color: rgb(0, 0, 0);
@@ -64,11 +64,15 @@ nav li {
 
     .burger-bar.unclicked {
         transform: rotate(0) translate(0);
-        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+        transition: cubic-bezier(0.46, 0.78, 0.67, 0.95) 0.5s;
     }
 
     /*---------end burger bar animation-------- */
 
+    .hidden {
+        display: none;
+    }
+    
     .title {
         display: flex;
         justify-content: center;
@@ -79,22 +83,34 @@ nav li {
         min-width: 360px;
         margin-top: -10px;
         padding-top: 25px;
+        background-color: rgb(226, 192, 148);
     }
-
+    
     .menu-open {
-        background-color: rgb(209, 203, 203);
+        background-color: rgb(226, 192, 148);
         height: 100vh;
         min-width: 100vh;
         display: flex; 
         flex-direction: column;
         align-items: center; 
-        margin-top: 30px;
+        margin-top: 25px;
+    }
+    
+    .menu-open.clicked {
+        animation: to-top 500ms ease-in;
+    }
+    @keyframes to-top {
+        0%{
+            transform: translateY(100%);
+        }
     }
 
     .shopping-cart {
         display: flex;
         justify-content: flex-end;
-        padding-right: 10px;
+        padding-right: 5px;
         margin-top: -90px;
+        position: relative;
+        z-index: 1;
     }
 }
