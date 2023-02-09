@@ -1,11 +1,12 @@
 .navigationBar-container {
     background-color: rgba(98, 114, 163, 0.5);
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-evenly; 
     list-style-type: none;
     height: 100%;
     font-size: 1.5rem;
     max-width: 100%;
+    padding: 20px;
 }
 
 nav li {
@@ -14,12 +15,30 @@ nav li {
     align-items: center;
 }
 
+a:hover, a:active {
+    background-color: rgb(197, 170, 137);
+    transition: 200ms;
+}
+
 .title {
-    display: flex;
+
+    display: none;
     justify-content: center;
     font-weight: bolder;
     font-size: 3rem;
     padding-bottom: 0.5rem;
+}
+
+.titleD {
+    text-shadow: 1px 1px 1px  brown;
+}
+
+.shopping-cart {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: 30px;
+    margin-top: -25px;
 }
 
 
@@ -28,43 +47,53 @@ nav li {
         display: none;
     }
     
+    .title {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.75rem;
+        max-width: 800px;
+        padding-top: 25px;
+        background-color: rgb(226, 192, 148);
+        text-shadow: 1px 1px 1px  brown;
+    }
+
     .ham-bars {
-        width: 4.25rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        align-items: flex-start;
         cursor: pointer;
+        padding-right: 15px;
+        margin-top: -10px;
     }
     
     .burger-bar {
         z-index: 2;
         width: 2em;
-        height: 0.25em;
+        height: 0.2em;
         background-color: rgb(0, 0, 0);
         border-radius: 7px;
-        margin-top: 0.5em;
-        margin-left: 15px;
+        margin-top: 0.37em;
     }
     /* ------------burger bar animation-------------- */
 
     .burger-bar.clicked:nth-child(1) {
-        transform: rotate(45deg) translate(0.35em, .5em);
-        transition: ease-out 0.5s;
+        transform: rotate(45deg) translate(0.123em, .45em);
+        transition: ease-out 200ms;
     }
 
     .burger-bar.clicked:nth-child(2) {
         transform: scale(0.1);
-        transition: ease-out  0.5s;
+        transition: ease-out  200ms;
     }
 
     .burger-bar.clicked:nth-child(3) {
-        transform:rotate(135deg) translate(-0.5em, .75em);
-        transition: ease-out  0.5s;
+        transform:rotate(135deg) translate(-0.35em, .70em);
+        transition: ease-out  200ms;
     }
 
     .burger-bar.unclicked {
         transform: rotate(0) translate(0);
-        transition: cubic-bezier(0.46, 0.78, 0.67, 0.95) 0.5s;
+        transition: cubic-bezier(0.46, 0.78, 0.67, 0.95) 200ms;
     }
 
     /*---------end burger bar animation-------- */
@@ -73,44 +102,53 @@ nav li {
         display: none;
     }
     
-    .title {
-        display: flex;
-        justify-content: center;
-        font-size: 1.5rem;
-        text-align: center;
-        position: relative;
-        top: -30px;
-        min-width: 360px;
-        margin-top: -10px;
-        padding-top: 25px;
-        background-color: rgb(226, 192, 148);
-    }
     
     .menu-open {
-        background-color: rgb(226, 192, 148);
+        background-color: snow;
+        position: fixed;
         height: 100vh;
         min-width: 100vh;
         display: flex; 
         flex-direction: column;
-        align-items: center; 
-        margin-top: 25px;
+        align-items: flex-start; 
+        justify-content: flex-start;
+        animation: to-top 250ms ease-in;
+    }
+
+    .menu-open li {
+        margin-top: 35px;
+        font-family:Verdana, Tahoma, sans-serif;
+    }
+
+    a, a:visited
+    {
+        text-decoration: none;
+    }
+
+    a:hover, a:active {
+        text-decoration: underline;
     }
     
-    .menu-open.clicked {
-        animation: to-top 500ms ease-in;
-    }
     @keyframes to-top {
         0%{
-            transform: translateY(100%);
+            transform: translateX(100%);
         }
     }
 
+    .menu-open button {
+        border: none;
+        margin-top: 25px;
+        font-size: large;
+        padding: 3px;
+    }
+
+   /* style menu buttons */
+
+
     .shopping-cart {
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 5px;
-        margin-top: -90px;
-        position: relative;
-        z-index: 1;
+        display: none;
+    }
+    .titleD {
+        display: none;
     }
 }

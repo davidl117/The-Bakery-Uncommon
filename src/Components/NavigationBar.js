@@ -22,32 +22,32 @@ export default function Navigation() {
  
     return (
         <div>
-            <div className="ham-bars" onClick={toggleMenu}>
-                <div className={burger_bar}></div>
-                <div className={burger_bar}></div>
-                <div className={burger_bar}></div>
-            </div>            
-            <h1 className="title">The Bakery Uncommon</h1>
+            <h1 className="title">The Bakery Uncommon 
+                <span>
+                    <div className="ham-bars" onClick={toggleMenu}>
+                        <div className={burger_bar}></div>
+                        <div className={burger_bar}></div>
+                        <div className={burger_bar}></div>
+                    </div>            
+                </span>
+            </h1>
             <p className="shopping-cart">Cart</p>
             <nav className={`navigationBar-container ${menu_class}`}>
                 <li>
-                <Link to="/">Text</Link>
+                <Link to="/">Home</Link>
                 </li>
                 <li>
-                <Link to="/">Text</Link>
+                <Link to="/">Menu</Link>
+                </li>
+                <h1 className="titleD">The Bakery Uncommon</h1> 
+                <li>
+                <Link to="/">About</Link>
                 </li>
                 <li>
-                <Link to="/">Text</Link>
+                <Link to="/">Contact us</Link>
                 </li>
-                <li>
-                <Link to="/">Text</Link>
-                </li>
-                <li>
-                <Link to="/">Text</Link>
-                </li>
-                <li>
-                <Link to="/">Text</Link>
-                </li>
+                <button>Sign up</button>
+                <button>Login</button>
             </nav>
         </div>
     )
