@@ -2,15 +2,16 @@ import React from "react";
 import "./HeroStyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-
+import { Link } from "react-router-dom";
 
 export default function Hero() {
-
 
     return (
         <>
             <section className="hero-container">
-                <img src="./images/baked-goods-FP.jpg" alt="baked goods" />
+                <div className="img-wrapper">
+                    <img src="./images/baked-goods-FP.jpg" alt="baked goods"/>
+                </div>
                 <div className="scroll-btn-pstn">
                     <button className="scroll-btn left">
                         <FontAwesomeIcon 
@@ -28,7 +29,7 @@ export default function Hero() {
                     lorem ipsum magnus or loremlorem ipsum magnus or lorem
                     lorem ipsum magnus or lorem lorem ipsum magnus or lorem
                     </p>
-                <button className="hero-menu-btn">Menu</button>
+                <button className="hero-menu-btn"><Link to="/Menu">Menu</Link></button>
             </section>
 
             <section className="hero-lower">

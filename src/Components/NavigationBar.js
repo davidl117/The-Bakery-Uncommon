@@ -17,7 +17,10 @@ export default function Navigation() {
             setMenuClass("hidden unclicked")
         }
         setMenuOpen(!menuOpen)
-        console.log(menuOpen);
+    }
+
+    function closeMenu() {
+        toggleMenu(false)
     }
  
     return (
@@ -34,20 +37,20 @@ export default function Navigation() {
             <p className="shopping-cart">Cart</p>
             <nav className={`navigationBar-container ${menu_class}`}>
                 <li>
-                <Link to="/">Home</Link>
+                <Link to="/" onClick={() => closeMenu()}>Home</Link>
                 </li>
                 <li>
-                <Link to="/">Menu</Link>
+                <Link to="Menu" onClick={() => closeMenu()}>Menu</Link>
                 </li>
                 <h1 className="titleD">The Bakery Uncommon</h1> 
                 <li>
-                <Link to="/">About</Link>
+                <Link to="/" onClick={() => closeMenu()}>About</Link>
                 </li>
                 <li>
-                <Link to="/">Contact us</Link>
+                <Link to="/" onClick={() => closeMenu()}>Contact us</Link>
                 </li>
-                <button>Sign up</button>
-                <button>Login</button>
+                <button className="signUp">Sign up</button>
+                <button className="login">Login</button>
             </nav>
         </div>
     )

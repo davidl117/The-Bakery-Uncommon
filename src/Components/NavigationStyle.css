@@ -41,6 +41,13 @@ a:hover, a:active {
     margin-top: -25px;
 }
 
+.signUp, .login {
+    display: none;
+    border: none;
+    border-radius: 2em;
+
+}
+
 
 @media (max-width: 800px) {
     .navigationBar-container {
@@ -113,6 +120,7 @@ a:hover, a:active {
         align-items: flex-start; 
         justify-content: flex-start;
         animation: to-top 250ms ease-in;
+        width: 100%;
     }
 
     .menu-open li {
