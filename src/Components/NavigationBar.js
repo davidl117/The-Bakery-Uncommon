@@ -21,6 +21,7 @@ export default function Navigation() {
 
     function closeMenu() {
         toggleMenu(false)
+        
     }
  
     return (
@@ -44,7 +45,7 @@ export default function Navigation() {
                 </li>
                 <h1 className="titleD">The Bakery Uncommon</h1> 
                 <li>
-                <Link to="/" onClick={() => closeMenu()}>About</Link>
+                <Link to="/About" onClick={() => closeMenu()}>About</Link>
                 </li>
                 <li>
                 <Link to="/" onClick={() => closeMenu()}>Contact us</Link>

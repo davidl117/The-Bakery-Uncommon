@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './MenuStyle.css';
 import BakeryGoods from "./bakery_goods.json";
 
 
@@ -51,13 +52,15 @@ function Menu({ name, image, description, price}) {
     return (
         <>
         <article>
-            <img src={image} />
-            <p>{name}</p>
-            <p>{description}</p>
+            <img className="product-image" alt="" src={image} />
+            <p className="product-name">{name}</p>
+            <p className="product-description">{description}</p>
             <div className="cart-counter">
                 <h4>${price}</h4>
-                <button onClick={Subtract}>-</button><span><span>{count}</span><button onClick={Add}>+</button></span>
-                <p>cart</p>
+                <div className="button-container">    
+                    <button onClick={Subtract}>-</button><span><span>{count}</span><button onClick={Add}>+</button></span>
+                </div>
+                <p className="cart">cart</p>
             </div>
         </article>
         </>

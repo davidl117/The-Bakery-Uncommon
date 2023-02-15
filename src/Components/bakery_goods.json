@@ -3,7 +3,7 @@
         "id": 0,
         "image":"./images/applePie.jpeg",
         "name": "Apple Pie",
-        "descrpition": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
+        "description": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
         "price": 12.99,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
     },
@@ -11,7 +11,7 @@
         "id": 1,
         "image":"./images/bagel.jpeg",
         "name": "Apple Pie",
-        "descrpition": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
+        "description": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
         "price": 12.99,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
     },
@@ -19,7 +19,7 @@
         "id": 2,
         "image":"./images/bluberryMuffins.jpeg",
         "name": "Apple Pie",
-        "descrpition": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
+        "description": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
         "price": 12.99,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
     },
@@ -27,7 +27,7 @@
         "id": 3,
         "image":"./images/decorativeCake.jpeg",
         "name": "Apple Pie",
-        "descrpition": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
+        "description": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
         "price": 12.99,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
     }

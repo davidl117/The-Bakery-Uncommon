@@ -1,51 +1,130 @@
 .hero-container {
     text-align: center;
-    background-color: rgb(226, 192, 148);
 }
 
-/* .img-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    overflow: hidden;
-    gap: 10%;
-} */
 
 img {
-    padding-top: 20px;
-    /* margin-left: 15%; */
     max-width: 100%;
     object-fit: contain;
-    /* box-shadow: 1px 3px 6px 11px black; */
+}
+
+/* .sub-title {
+    position: relative;
+    top: -7rem;
+} */
+
+.article-text {
+    /* position: absolute; */
 }
 
 .hero-menu-btn {
-    margin: 5px;
-    padding: 10px;
+    margin: 2rem auto;
     border: none;
-    border-radius:0.7em;
-    box-shadow: 1px 1px 4px black;
-    background-color: rgb(136, 212, 136);
+    border-bottom: 2px solid black;
+    font-size: large;
+    font-family:'Fantasy';
+    background: none;
+    z-index: 1;
+}
+
+.hero-menu-btn a:visited {
+    color: inherit;
+}
+
+.hero-menu-btn a:hover {
+    background-color: inherit;
+    color: teal;
+}
+
+.hero-menu-btn a {
+    text-decoration: none;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 70%;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+
+.carousel_wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.carousel_image {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.carousel_btn {
+    position: absolute;
+    top: 50%;
+    border: 0;
+    z-index: 2;
+    background: transparent;
+    transform: translateY(-50%); /* put the arrow dead center of image*/
+}
+
+/* .carousel_btn:hover {
+    border-radius: 100%;
+} */
+
+.carousel_btn--left {
+    left: -40px;
+}
+
+.carousel_btn--right {
+    right: -40px;
+}
+
+.carousel_nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top: 0.4em;
+}
+
+.carousel_indicator {
+    border: none;
+    margin: 0 10px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: rgba(0,0,0,0.5);
+}
+
+.carousel_indicator.current-slide {
+    background-color: rgba(0,0,0,0.75);
+}
+
+.hero-lower {
+    background-color: rgb(27, 28, 31);
+    color: burlywood;
 }
 
 button {
     cursor: pointer;
 }
 
-.scroll-btn {
-    display: none;
-}
+
 
 @media (min-width: 800px) {
-
+    
     .hero-container {
-
+        
     }
-
+    
     img {
         width: 50em;
         border-radius: 0 0 12px 12px;
     }
-
+    
     .sub-title, .article-text {
         display: flex;
     }
