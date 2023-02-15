@@ -60,6 +60,7 @@ img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
+    transition: 250ms ease-in;
 }
 
 .carousel_btn {
@@ -71,9 +72,12 @@ img {
     transform: translateY(-50%); /* put the arrow dead center of image*/
 }
 
-/* .carousel_btn:hover {
-    border-radius: 100%;
-} */
+.carousel_btn:hover {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: rgba(0,0,0,0.5);
+}
 
 .carousel_btn--left {
     left: -40px;
@@ -99,7 +103,7 @@ img {
     background: rgba(0,0,0,0.5);
 }
 
-.carousel_indicator.current-slide {
+.carousel_indicator.current-slide:active {
     background-color: rgba(0,0,0,0.75);
 }
 

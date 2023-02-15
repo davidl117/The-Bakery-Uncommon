@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import "./HeroStyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -28,14 +28,16 @@ export default function Hero() {
             image:"./images/bluberryMuffins.jpeg",
         }
     ]
-
+    
     const [currentId, setCurrentId] = useState(0);
-
-//need to slide images to the left on right click
-//need to get the index of each image or ID
-//map over the images and aply the same function 
-//make an array of the images to cycle through with state
-
+    
+    function toggleSlide() {
+        setCurrentId(currentId => currentId === 0 ? slidingImage.length - 1: currentId - 1)
+    }
+    
+    function toggleSlideRight() {
+        setCurrentId(currentId => currentId === slidingImage.length - 1 ? 0 : currentId + 1)
+    }
     
     const slides = slidingImage.map(slide => {
         return (
@@ -47,16 +49,19 @@ export default function Hero() {
             />
             )
         })
-        console.log(slides)
+    
+    const carouselIndicators = slidingImage.map((slide, slideIndex) => {
+        return (
+                <button className="carousel_indicator current-slide"
+                key={slide.id}
+                onClick={() => carouselGoTo(slideIndex)}
+                >
+                </button>
+        )
+    }) 
 
-    function toggleSlide() {
-        setCurrentId(currentId => currentId === 0 ? slidingImage.length - 1: currentId - 1)
-        console.log(currentId)
-    }
-
-    function toggleSlideRight() {
-        setCurrentId(currentId => currentId === slidingImage.length - 1 ? 0 : currentId + 1)
-        console.log(currentId)
+    function carouselGoTo(slideIndex) {
+        setCurrentId(slideIndex)
     }
 
     return (
@@ -86,8 +91,7 @@ export default function Hero() {
                 </ul>
 
                 <div className="carousel_nav">
-                    {/* //make indicator work */}
-                    <button className="carousel_indicator current-slide"></button>
+                    {carouselIndicators}
                 </div>
 
             <section className="hero-lower">
