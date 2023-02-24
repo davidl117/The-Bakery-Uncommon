@@ -1,5 +1,13 @@
 .product-image {
+}
 
+
+/* need to make a media query for lead time
+or put in menu for less than 350px*/
+.order-timing {
+    position: relative;
+    top: 77px;
+    background-color: sienna;
 }
 
 .product-name {
@@ -17,6 +25,7 @@
 
 .button-container {
     margin-top: 5%;
+    margin-bottom: -5%;
     display: flex;
     justify-content: center;
 }
@@ -30,9 +39,30 @@
     background-color: burlywood;
 }
 
+.cart-container {
+}
+
+/* add media query for a cart to display at around 5-600px */
+
 .cart {
     display: flex;
     justify-content: center;
-    margin-top: 3%
+    align-items: center;
+    margin: 10% auto -5% auto;
+    border: none;
+    min-width: 25%;
+    padding: 10px;
+    background-color: rgb(85, 48, 48);
+    border-radius: 3px;
+    color: antiquewhite;
 }
 
+.cart_basket{
+    height: 1em;
+    margin-left: .5em;
+}
+
+/* .cart_count {
+    color:black;
+    border-radius: 100px;
+} */

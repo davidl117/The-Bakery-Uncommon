@@ -2,10 +2,14 @@
     text-align: center;
 }
 
+.img-wrapper {
+    margin-top: em;
+}
 
 img {
     max-width: 100%;
     object-fit: contain;
+    margin-top: 5em;
 }
 
 /* .sub-title {
@@ -13,9 +17,9 @@ img {
     top: -7rem;
 } */
 
-.article-text {
-    /* position: absolute; */
-}
+/* .article-text {
+    position: absolute;
+} */
 
 .hero-menu-btn {
     margin: 2rem auto;
@@ -115,8 +119,6 @@ img {
 button {
     cursor: pointer;
 }
-
-
 
 @media (min-width: 800px) {
     

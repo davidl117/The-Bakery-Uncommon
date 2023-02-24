@@ -54,6 +54,14 @@ a:hover, a:active {
         display: none;
     }
     
+    .title-bar-sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 5;
+        margin-bottom: 205px;
+    }
+
     .title {
         display: flex;
         justify-content: space-between;
@@ -75,11 +83,11 @@ a:hover, a:active {
     
     .burger-bar {
         z-index: 2;
-        width: 2em;
-        height: 0.2em;
+        width: 1em;
+        height: 0.1em;
         background-color: rgb(0, 0, 0);
         border-radius: 7px;
-        margin-top: 0.37em;
+        margin-top: 0.2em;
     }
     /* ------------burger bar animation-------------- */
 
@@ -94,7 +102,7 @@ a:hover, a:active {
     }
 
     .burger-bar.clicked:nth-child(3) {
-        transform:rotate(135deg) translate(-0.35em, .70em);
+        transform:rotate(135deg) translate(0.045em, .30em);
         transition: ease-out  200ms;
     }
 
@@ -105,27 +113,82 @@ a:hover, a:active {
 
     /*---------end burger bar animation-------- */
 
-    .hidden {
-        /* animation: to-side 250ms ease-in; */
-    }
-
     .menu-open {
         background-color: snow;
         position: fixed;
-        height: 100vh;
-        min-width: 100vh;
+        margin-top: 1.5em;
+        min-height: 100vh;
+        width: 100%;
         display: flex; 
         flex-direction: column;
         align-items: flex-start; 
         justify-content: flex-start;
         animation: to-side 250ms ease-in;
-        width: 100%;
-        z-index: 5;
+        z-index: 4;
     }
-    
+   
     @keyframes to-side {
         0%{
             transform: translateX(100%);
+        }
+    }
+    
+    .menu-close {
+        background-color: snow;
+        position: fixed;
+        left: 0;
+        top: 0;
+        margin-top: 1.5em;
+        display: flex; 
+        flex-direction: column;
+        align-items: flex-start; 
+        justify-content: flex-start;
+        z-index: 4;
+        transform: translate3d(100vw, 0, 0);
+        width: 100vw;
+        height: 100vh;
+        transition: transform 250ms ease-in;
+    }
+
+    .subMenu_button {
+        position: relative;
+        top: -10px;
+        margin-left: 1em;
+    }
+    
+    .subMenu-hidden {
+        display: none;
+    }
+    
+    .subMenu-visible .close {
+        display: hidden;
+        animation: to-top 250ms ease-in;
+    }
+
+    @keyframes to-top {
+        100%{
+            margin-bottom: 10%;
+        }
+    }
+    
+    .subMenu-visible {
+        display: block;
+        font-size: large;
+        background-color: bisque;
+        border: 1px solid black;
+        border-radius: 7px;
+        padding: 5px;
+        animation: to-bottom 250ms ease-in;
+    }
+
+     .subMenu li:hover, a:hover {
+        background-color: bisque;
+        opacity: 0.8;
+    }
+
+    @keyframes to-bottom {
+        0%{
+            margin-bottom: -10%;
         }
     }
 
@@ -141,7 +204,7 @@ a:hover, a:active {
     }
 
     a:hover, a:active {
-        text-decoration: underline;
+        text-decoration: none;
     }
     
     .menu-open button {
@@ -154,7 +217,7 @@ a:hover, a:active {
    /* style menu buttons */
 
     .shopping-cart {
-        display: none;
+      display: none;  
     }
     .titleD {
         display: none;
