@@ -1,8 +1,9 @@
 [
     {
         "id": 0,
-        "image":"./images/applePie.jpeg",
+        "image":"./images/oatBread.jpeg",
         "name": "Apple Pie",
+        "rotate": true,
         "description": "This is a description of the above image and it tells you all the sweet details of this product. Wether it is sweet savory or just plain delicious!",
         "price": 12.99,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
