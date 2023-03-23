@@ -45,24 +45,25 @@ export default function Menu({ name, image, description, price}) {
     return (
         <article className="product-image-container">
             <img className="product-image" alt="" src={image}/>
-            <p className="product-name">{name}</p>
-            <p className="product-description">{description}</p>
-            <div className="cart-counter">
-                <h4>${price}</h4>
-                <div className="button-container">    
-                    <button onClick={Subtract}>-</button><span>
-                        <span>{count}</span>
-                        <button onClick={Add}>+</button></span>
-                </div>
-                <div>
-                    <button className="cart" onClick={floatingCart}>Add to basket
-                    <FontAwesomeIcon className="cart_basket" icon={faShoppingBasket}>
-                    </FontAwesomeIcon>
-                    <div className="cart_count">{cartCount}</div>
-                    </button>
+            <div className="productNameDescCount-container">
+                <p className="product-name">{name}</p>
+                <p className="product-description">{description}</p>
+                <div className="cart-counter">
+                    <h4>${price}</h4>
+                    <div className="button-container">    
+                        <button onClick={Subtract}>-</button><span>
+                            <span>{count}</span>
+                            <button onClick={Add}>+</button></span>
+                    </div>
+                    <div>
+                        <button className="cart" onClick={floatingCart}>Add to basket
+                            <FontAwesomeIcon className="cart_basket" icon={faShoppingBasket}>
+                            </FontAwesomeIcon>
+                            <div className="cart_count">{cartCount}</div>
+                        </button>
+                    </div>
                 </div>
             </div>
-            
         </article>
     );
 }

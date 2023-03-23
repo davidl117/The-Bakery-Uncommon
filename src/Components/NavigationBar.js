@@ -9,10 +9,8 @@ export default function Navigation() {
     const [burger_bar, setBurgerClass] = useState("burger-bar unclicked");
     const [menuOpen, setMenuOpen] = useState(false);
     const [menu_class, setMenuClass] = useState("unclicked");
-
     const [subMenuOpen, setSubMenuOpen] = useState(false);
     const [subMenu, setSubMenu] = useState("subMenu-hidden");
-
     const [isMobile, setIsMobile] = useState(true);
 
     function toggleMenu() {
@@ -33,21 +31,29 @@ export default function Navigation() {
     function handleOpenSubMenu() {
         if(!subMenuOpen) {
             setSubMenu("subMenu-visible")
-        }else{
+        }else if (subMenuOpen === false && isMobile === false) {
             setSubMenu("subMenu-hidden")
+        }else if (subMenuOpen === true) {
+            setSubMenu("subMenu-hidden")
+            toggleMenu(false)
         }
         setSubMenuOpen(!subMenuOpen)
     }
 
+    function closeSubMenu() {
+        handleOpenSubMenu()
+    }
+
     const handleResize = () => {
-        if (window.innerWidth < 649) {
+        if (window.innerWidth < 760) {
             setIsMobile(true)
-        }else if (window.innerWidth > 649) {
+        }else if (window.innerWidth > 760) {
             setIsMobile(false)
     }}
     
     useEffect(() => {
         window.addEventListener('load', handleResize)
+        window.addEventListener('resize', handleResize)
 
         return () => {
             window.removeEventListener('load', handleResize)
@@ -56,7 +62,7 @@ export default function Navigation() {
  
     return (
         <header>
-                <h1 className="title-bar title-bar-sticky"><Link to="/">The Bakery Uncommon</Link>
+                <h1 className="title-bar title-bar-sticky"><Link to="/" style={{color:"#f5f1ed"}}>The Bakery Uncommon</Link>
                     <span>
                         <div className="ham-bars" onClick={toggleMenu}>
                             <div className={burger_bar}></div>
@@ -67,28 +73,30 @@ export default function Navigation() {
                 </h1>
             {/* <p className="shopping-cart"><FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon></p> */}
             <nav className={!isMobile ? `navigationBar` : `menu-close ${menu_class}`}>
-                <li>
-                    <Link to="/" onClick={() => closeMenu()}>Home</Link>
-                </li>
-                <li>
-                    <Link to="Menu" onClick={() => closeMenu()}>Menu</Link>
-                    <button className="subMenu_button" onClick={handleOpenSubMenu}>
-                        <FontAwesomeIcon icon={subMenuOpen ? faChevronUp: faChevronDown }>
-                        </FontAwesomeIcon>
-                    </button>
-                </li>
-                <ul className={subMenu}>
-                    <li className={subMenu}><Link to="Menu" onClick={() => closeMenu()}>Pies</Link></li>
-                    <li className={subMenu}><Link to="Menu" onClick={() => closeMenu()}>Bread</Link></li>
-                    <li className={subMenu}><Link to="Menu" onClick={() => closeMenu()}>Muffins</Link></li>
-                    <li className={subMenu}><Link to="Menu" onClick={() => closeMenu()}>Cookies</Link></li>
+                <ul className="li-container">
+                    <li>
+                        <Link to="/" onClick={() => closeMenu()}>Home</Link>
+                    </li>
+                    <li>
+                        <Link to="Menu" onClick={() => closeMenu()}>Menu</Link>
+                        <button className="subMenu_button" onClick={handleOpenSubMenu}>
+                            <FontAwesomeIcon icon={subMenuOpen ? faChevronUp: faChevronDown }>
+                            </FontAwesomeIcon>
+                        </button>
+                        <ul className={`subMenu ${subMenu}`}>
+                            <li className={subMenu}><Link to="Menu" onClick={() => closeSubMenu()}>Pies</Link></li>
+                            <li className={subMenu}><Link to="Menu" onClick={() => closeSubMenu()}>Bread</Link></li>
+                            <li className={subMenu}><Link to="Menu" onClick={() => closeSubMenu()}>Muffins</Link></li>
+                            <li className={subMenu}><Link to="Menu" onClick={() => closeSubMenu()}>Cookies</Link></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <Link to="/About" onClick={() => closeMenu()}>About</Link>
+                    </li>
+                    <li>
+                        <Link to="#Contact" onClick={() => closeMenu()}>Contact us</Link>
+                    </li>
                 </ul>
-                <li>
-                <Link to="/About" onClick={() => closeMenu()}>About</Link>
-                </li>
-                <li>
-                <Link to="/Contact" onClick={() => closeMenu()}>Contact us</Link>
-                </li>
                 <button className="sinLog-btn login">Login</button>
                 <button className="sinLog-btn signUp">Sign up</button>
             </nav>

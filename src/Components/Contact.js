@@ -20,8 +20,8 @@ export default function Contact() {
          }, (error) => {
                 console.log(error);
         });
+        
         setSubmitted(prevSubmit => !prevSubmit)
-            alert("Message Submitted")
             console.log(submitted);
         } 
 
@@ -37,7 +37,7 @@ export default function Contact() {
 
     return (
         <div className="contact-container">
-            <h1>{submitted ? "Thanks! I'll be in touch ASAP!": "Get in touch with me"}</h1>
+            <h1 className="contact-header">{submitted ? {handleSubmit}: "Get in touch with me!"}</h1>
             <form 
                   className="form-container"
                   ref={form}
@@ -47,7 +47,7 @@ export default function Contact() {
             >
                 <input 
                     type="text"
-                    placeholder="Name here..."
+                    placeholder="Name"
                     name="user_name"
                     required 
                 />
