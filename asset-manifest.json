@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/davidl117/bakery-website/static/css/main.b6c91b61.css",
+    "main.js": "/davidl117/bakery-website/static/js/main.ee5304e6.js",
+    "index.html": "/davidl117/bakery-website/index.html",
+    "main.b6c91b61.css.map": "/davidl117/bakery-website/static/css/main.b6c91b61.css.map",
+    "main.ee5304e6.js.map": "/davidl117/bakery-website/static/js/main.ee5304e6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6c91b61.css",
+    "static/js/main.ee5304e6.js"
+  ]
+}
