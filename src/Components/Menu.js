@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { ShopContext } from "../Context/ShoppingCartContext";
 
+export default function Menu({id, name, image, description, price}) {
 
-export default function Menu({ name, image, description, price}) {
-    
+    const {addToCart} = useContext(ShopContext);
+
     const [count, setCount] = useState(0);
 
 
@@ -25,23 +27,21 @@ export default function Menu({ name, image, description, price}) {
         }
     }
 
-    function floatingCart() {
-        if (count > 0 ) {
-            return (
-                <button className="floatingCart-btn">
-                    View cart {count}
-                </button>
-            )
-        }
-    }
+    // makes cart appear on add to basket click
+    // function floatingCart() {
+    //     if (count > 0 ) {
+    //         return (
+    //             <button className="floatingCart-btn">
+    //                 View cart {count} items
+    //             </button>
+    //         )
+    //     }
+    // }
 
-    function cartCount() {
-            setCount(count)
-    }
+    // function cartCount() {
+    //         setCount(count)
+    // }
    
-    // props for varying order types of certain items 
-    // eg: 1 bagel price, 6 bagels price, 12 bagel price
-
     return (
         <article className="product-image-container">
             <img className="product-image" alt="" src={image}/>
@@ -56,10 +56,10 @@ export default function Menu({ name, image, description, price}) {
                             <button onClick={Add}>+</button></span>
                     </div>
                     <div>
-                        <button className="cart" onClick={floatingCart}>Add to basket
+                        <button className="cart" onClick={() => addToCart(id)}>Add to basket
                             <FontAwesomeIcon className="cart_basket" icon={faShoppingBasket}>
                             </FontAwesomeIcon>
-                            <div className="cart_count">{cartCount}</div>
+                            {/* <div className="cart_count">{cartCount}</div> */}
                         </button>
                     </div>
                 </div>

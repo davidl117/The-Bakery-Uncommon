@@ -3,9 +3,8 @@
         "id": 0,
         "image":"./images/oatBread.jpeg",
         "name": "Oat Bread",
-        "rotate": true,
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "price": 12.99,
+        "price": 18,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
     },
     {
@@ -13,7 +12,7 @@
         "image":"./images/bagel.jpeg",
         "name": "Gluten Free Bagels",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "price": 12.99,
+        "price": 19.99,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
     },
     {
@@ -29,7 +28,7 @@
         "image":"./images/decorativeCake.jpeg",
         "name": "Decorative Cake",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "price": 12.99,
+        "price": 32.99,
         "ingredients": "delicious flavors, apples, cinnammon, and all the good spice"
     }
 ]

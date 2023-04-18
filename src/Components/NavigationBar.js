@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { faCartShopping, faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 export default function Navigation() {
+
 
     const [burger_bar, setBurgerClass] = useState("burger-bar unclicked");
     const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +13,7 @@ export default function Navigation() {
     const [subMenu, setSubMenu] = useState("subMenu-hidden");
     const [isMobile, setIsMobile] = useState(true);
 
+    // opens and closes hamburger menu
     function toggleMenu() {
         if (!menuOpen) {
             setBurgerClass("burger-bar clicked")
@@ -24,9 +25,11 @@ export default function Navigation() {
         setMenuOpen(!menuOpen)
     }
 
+    // closes menu when link is clicked
     function closeMenu() {
         toggleMenu(false)
     }
+
 
     function handleOpenSubMenu() {
         if(!subMenuOpen) {
@@ -44,6 +47,7 @@ export default function Navigation() {
         handleOpenSubMenu()
     }
 
+    // To check if screen should be mobile or desktop
     const handleResize = () => {
         if (window.innerWidth < 760) {
             setIsMobile(true)
@@ -57,12 +61,13 @@ export default function Navigation() {
 
         return () => {
             window.removeEventListener('load', handleResize)
+            window.removeEventListener('resize', handleResize)
         }
     }, []) 
  
     return (
         <header>
-                <h1 className="title-bar title-bar-sticky"><Link to="/" style={{color:"#f5f1ed"}}>The Bakery Uncommon</Link>
+                <h1 className="title-bar title-bar-sticky"><Link to="/" >The Bakery Uncommon</Link>
                     <span>
                         <div className="ham-bars" onClick={toggleMenu}>
                             <div className={burger_bar}></div>
@@ -71,8 +76,8 @@ export default function Navigation() {
                         </div>            
                     </span>
                 </h1>
-            {/* <p className="shopping-cart"><FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon></p> */}
             <nav className={!isMobile ? `navigationBar` : `menu-close ${menu_class}`}>
+            <p className="shopping-cart"><button className="shopping-cart_button">Go to cart<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon></button></p>
                 <ul className="li-container">
                     <li>
                         <Link to="/" onClick={() => closeMenu()}>Home</Link>
@@ -93,9 +98,9 @@ export default function Navigation() {
                     <li>
                         <Link to="/About" onClick={() => closeMenu()}>About</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="#Contact" onClick={() => closeMenu()}>Contact us</Link>
-                    </li>
+                    </li> */}
                 </ul>
                 <button className="sinLog-btn login">Login</button>
                 <button className="sinLog-btn signUp">Sign up</button>

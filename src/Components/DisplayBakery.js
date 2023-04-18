@@ -1,13 +1,13 @@
 import BakeryGoods from "./bakery_goods.json";
 import Menu from "./Menu";
-import floatingCart from "./Menu"
 
 export default function DisplayBakery() {
 
     const bakeryItems = BakeryGoods.map(baked => {
         return (
-        <Menu 
+            <Menu 
                 key={baked.id}
+                id={baked.id}
                 image={baked.image}
                 rotate={baked.rotate}
                 name={baked.name}
@@ -15,8 +15,8 @@ export default function DisplayBakery() {
                 price={baked.price}
                 ingredients={baked.ingredients}  
                 />
-        )
-    })
+            )
+        })
 
     return (
         <div>
@@ -24,6 +24,9 @@ export default function DisplayBakery() {
                 weekends.
             </h3>
             {bakeryItems}
+            <button className="floatingCart-btn">
+                    View cart items
+             </button>
         </div>
     );
 }
