@@ -1,35 +1,34 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom";
 import Contact from "./Contact";
-
 
 export default function Hero() {
 
     const slidingImage = [
         {
-            id: 0,
-            image:"./images/pancake.jpeg",
+            id: 8,
+            image:'./images/pancake.jpeg',
             name: "Pancakes"
         },
         {
-            id: 1,
+            id: 9,
             image:"./images/ryeBread.jpeg",
             name: "Rye Bread"
         },
         {
-            id: 2,
+            id: 10,
             image:"./images/fruitCobbler.jpeg",
             name: "Fruit Cobbler"
         },
         {
-            id: 3,
+            id: 11,
             image:"./images/applePie.jpeg",
             name: "Apple Pie"
         },
         {
-            id: 4,
+            id: 12,
             image:"./images/bluberryMuffins.jpeg",
             name: "Blueberry Muffins"
         }
@@ -59,9 +58,8 @@ export default function Hero() {
     
     const staticSlides = slidingImage.map(slide => {
         return (
-            <figure>
+            <figure key={slide.id}>
                 <img className="carousel_image"
-                key={slide.id}
                 src={slide.image}
                 alt=""   
                 />
@@ -79,10 +77,10 @@ export default function Hero() {
     }}
     
     useEffect(() => {
-        window.addEventListener('resize', handleResize)
+        // window.addEventListener('resize', handleResize)
         window.addEventListener('load', handleResize)
         return () => {
-            window.removeEventListener('resize', handleResize)
+            // window.removeEventListener('resize', handleResize)
             window.removeEventListener('load', handleResize)
         }
     }, [])    
@@ -91,7 +89,7 @@ export default function Hero() {
         if (window.innerWidth > 760) {
             return (
                 <>
-                    <img src="./images/ryeBreadSliced.jpeg" alt=""/>
+                    <img src="./images/ryeBreadSliced.jpeg" alt="The best thing since sliced bread"/>
                 </>
             )
         }else {
