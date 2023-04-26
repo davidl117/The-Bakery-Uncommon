@@ -9,7 +9,6 @@ export default function DisplayBakery() {
                 key={baked.id}
                 id={baked.id}
                 image={baked.image}
-                rotate={baked.rotate}
                 name={baked.name}
                 description={baked.description}
                 price={baked.price}

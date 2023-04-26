@@ -1,31 +1,30 @@
 import React, { useContext } from "react";
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { ShopContext } from "../Context/ShoppingCartContext";
 
 export default function Menu({id, name, image, description, price}) {
 
-    const {addToCart} = useContext(ShopContext);
+    const {cartItems, addToCart, removeFromCart, Add, Subtract, count} = useContext(ShopContext);
 
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
 
 
-    function Add() {
-        return (
-        setCount(count + 1 )
-        )
-    }
+    // function Add() {
+    //     return (
+    //         setCount(prevCount => prevCount + 1 )
+    //     )
+    // }
 
-    function Subtract() {
-        if (count <= 0){
-            return
-        }else {
-        return (
-        setCount(count - 1 )
-        )
-        }
-    }
+    // function Subtract() {
+    //     if (count <= 0){
+    //         return
+    //     }else {
+    //     return (
+    //         setCount(prevCount => prevCount - 1 )
+    //     )
+    //     }
+    // }
 
     // makes cart appear on add to basket click
     // function floatingCart() {
@@ -38,8 +37,11 @@ export default function Menu({id, name, image, description, price}) {
     //     }
     // }
 
+    
     // function cartCount() {
-    //         setCount(count)
+    //     return(
+    //         setCount(id)
+    //     )
     // }
    
     return (
@@ -50,16 +52,18 @@ export default function Menu({id, name, image, description, price}) {
                 <p className="product-description">{description}</p>
                 <div className="cart-counter">
                     <h4>${price}</h4>
-                    <div className="button-container">    
-                        <button onClick={Subtract}>-</button><span>
-                            <span>{count}</span>
-                            <button onClick={Add}>+</button></span>
-                    </div>
+                    {/* <div className="button-container">    
+                        <button onClick={() => Subtract(id)}>-</button>
+                            <span>
+                                <input className="cartCountField" value={cartItems[id]} onChange={(e) => e.target.value}/>
+                                <button onClick={() => Add(id)}>+</button>
+                            </span>
+                    </div> */}
                     <div>
                         <button className="cart" onClick={() => addToCart(id)}>Add to basket
                             <FontAwesomeIcon className="cart_basket" icon={faShoppingBasket}>
                             </FontAwesomeIcon>
-                            {/* <div className="cart_count">{cartCount}</div> */}
+                            <div className="cart_count">{cartItems[id]}</div>
                         </button>
                     </div>
                 </div>

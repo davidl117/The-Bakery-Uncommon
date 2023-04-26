@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { faCartShopping, faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp, faChevronDown, faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ShopContext } from "../Context/ShoppingCartContext";
 
-export default function Navigation() {
+export default function Navigation({id}) {
 
+    const {cartItems} = useContext(ShopContext)
 
     const [burger_bar, setBurgerClass] = useState("burger-bar unclicked");
     const [menuOpen, setMenuOpen] = useState(false);
-    const [menu_class, setMenuClass] = useState("unclicked");
+    const [menu_class, setMenuClass] = useState("");
     const [subMenuOpen, setSubMenuOpen] = useState(false);
     const [subMenu, setSubMenu] = useState("subMenu-hidden");
     const [isMobile, setIsMobile] = useState(true);
+
+    console.log(menuOpen)
+    console.log(isMobile)
 
     // opens and closes hamburger menu
     function toggleMenu() {
         if (!menuOpen) {
             setBurgerClass("burger-bar clicked")
-            setMenuClass("menu-open clicked")
+            setMenuClass("menu-open  transition clicked")
         }else {
             setBurgerClass("burger-bar unclicked")
-            setMenuClass("unclicked")
+            setMenuClass("menu-close transition")
         }
         setMenuOpen(!menuOpen)
     }
@@ -76,13 +81,20 @@ export default function Navigation() {
                         </div>            
                     </span>
                 </h1>
-            <nav className={!isMobile ? `navigationBar` : `menu-close ${menu_class}`}>
-            <p className="shopping-cart"><button className="shopping-cart_button">Go to cart<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon></button></p>
-                <ul className="li-container">
-                    <li>
+            <nav className={!isMobile ? `navigationBar` : `${menu_class}`}>
+            <p className="shopping-cart">
+                <Link to="ShopCart" onClick={() => closeMenu()}>
+                    <button className={`shopping-cart_button ${menuOpen ? "shopping-cart_button" : "noDisplay"}`}>Go to Basket
+                        <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
+                        <div>{cartItems[id]}</div>
+                    </button>
+                </Link>
+            </p>
+                <ul className={` ${menuOpen ? "list-items transition" : "transition noDisplay"}`}>
+                    <li className="list-items">
                         <Link to="/" onClick={() => closeMenu()}>Home</Link>
                     </li>
-                    <li>
+                    <li className="list-items">
                         <Link to="Menu" onClick={() => closeMenu()}>Menu</Link>
                         <button className="subMenu_button" onClick={handleOpenSubMenu}>
                             <FontAwesomeIcon icon={subMenuOpen ? faChevronUp: faChevronDown }>
@@ -95,15 +107,15 @@ export default function Navigation() {
                             <li className={subMenu}><Link to="Menu" onClick={() => closeSubMenu()}>Cookies</Link></li>
                         </ul>
                     </li>
-                    <li>
+                    <li className="list-items">
                         <Link to="/About" onClick={() => closeMenu()}>About</Link>
                     </li>
-                    {/* <li>
+                    {/* <li className="list-items">
                         <Link to="#Contact" onClick={() => closeMenu()}>Contact us</Link>
                     </li> */}
                 </ul>
-                <button className="sinLog-btn login">Login</button>
-                <button className="sinLog-btn signUp">Sign up</button>
+                <button className={`sinLog-btn login ${menuOpen ? "" : "noDisplay"}`}>Login</button>
+                <button className={` sinLog-btn signUp  ${menuOpen ? "" : "noDisplay"}`}>Sign up</button>
             </nav>
         </header>
         
